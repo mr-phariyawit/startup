@@ -1,12 +1,12 @@
 # 🛸 Antigravity Startup
 
-> **Repository สำหรับ Antigravity Global Rules และ Toolkit**
+> **Repository for Antigravity Global Rules, Toolkit & SDD Framework**
 
 ## 📁 Files
 
 | File | Purpose |
 |:-----|:--------|
-| `GEMINI.md` | Global Rules + Factory Reset Guide + Agent Instructions + Embedded Toolkit |
+| `GEMINI.md` | Global Rules + SDD Philosophy + Factory Reset Guide + Agent Instructions + Embedded Toolkit |
 
 ## 🚀 Quick Start
 
@@ -16,11 +16,21 @@
    ```
 
 2. **Sync Global Rules**:
-   พิมพ์ **"sync GEMINI"** ใน Antigravity
+   Type **"sync GEMINI"** in Antigravity
 
-3. **ดูคำแนะนำทั้งหมด**:
-   อ่านใน `GEMINI.md`
+3. **Read documentation**:
+   See `GEMINI.md` for complete guide
+
+## 📐 Specification-Driven Development (SDD)
+
+This repository follows **SDD philosophy** — specifications don't serve code; code serves specifications.
+
+Key concepts in `GEMINI.md`:
+- The Power Inversion
+- SDD Workflow
+- Nine Articles of Development
+- Pre-Implementation Gates
 
 ---
 
-*🛸 Antigravity Startup v3.2*
+*🛸 Antigravity Startup v5.0 — Powered by SDD*
