@@ -1,53 +1,59 @@
 # Antigravity Global Rules
 
 ## ⚠️ IMPORTANT: Conversation Size Limit
-> **สร้าง Chat ใหม่เมื่อ:**
-> - Conversation ยาวเกิน 50 messages
-> - พูดคุยหัวข้อใหม่ที่ไม่เกี่ยวข้องกับหัวข้อเดิม
-> - Agent เริ่มตอบช้า หรือมีปัญหา
+
+> **Start a new chat when:**
+> - Conversation exceeds 50 messages
+> - Switching to a new, unrelated topic
+> - Agent becomes slow or unresponsive
 >
-> **ทำไม?** Conversation ที่ใหญ่เกินไปเป็นสาเหตุหลักของ 413 error และ Agent terminated
+> **Why?** Large conversations are the primary cause of 413 errors and Agent termination.
 
 ## 🚀 Performance & Workflow
-1. **Vibe Coding**: Use "Goal -> Context -> Constraint" prompt structure.
-2. **Mode Selection**: Use "Deep Think" for planning, "Turbo" for execution.
-3. **Artifacts**: Debug via artifacts, not chat loops.
-4. **New Chat Often**: สร้าง Chat ใหม่บ่อยๆ — ไม่ต้องกลัวเสีย context, Agent มี memory
 
-## 🚨 Emergency Protocols (Global Rules)
+1. **Structured Prompts**: Use "Goal → Context → Constraint" structure for clarity.
+2. **Mode Selection**: Use "Deep Think" for planning/architecture, "Turbo" for execution.
+3. **Artifacts Over Chat**: Debug via artifacts and files, not endless chat loops.
+4. **Context Hygiene**: Start fresh chats often — Agent has persistent memory across sessions.
+5. **Iterative Refinement**: Start simple, then iterate based on outputs.
 
-### 🔴 Global Rule #1: Agent Termination Protocol
+## 🚨 Emergency Protocols
+
+### 🔴 Rule #1: Agent Termination Protocol
+
 **Trigger**: "Agent terminated", "Model provider overload", or 413 error.
-**Resolution Steps:**
 
-**Phase 0: Immediate Config Check (User Verification)**
-1. **HTTP Check**: Ensure **"HTTP Compatibility Mode"** is set to **"HTTP/1.1"** in IDE Settings > Network.
-2. **Resource Check**: Run `Developer: Open Process Explorer` and kill any high-RAM (>2GB) processes.
+**Phase 0: Immediate Checks (User)**
+1. **HTTP Mode**: Ensure **"HTTP Compatibility Mode"** is set to **"HTTP/1.1"** in IDE Settings > Network.
+2. **Resources**: Run `Developer: Open Process Explorer` and kill processes using >2GB RAM.
 
-**Phase 1: Mitigation (Agent Actions)**
+**Phase 1: Mitigation (Agent)**
 1. **Downshift Model**: Switch models (High → Standard → Low).
-2. **DISABLE MCPs**: Temporarily disable **ALL** MCP servers. This is critical for 413 errors.
-3. **Context Cull**: Clear chat history or start a fresh session if context > 20k tokens.
+2. **Disable MCPs**: Temporarily disable **ALL** MCP servers. Critical for 413 errors.
+3. **Reduce Context**: Clear chat history or start new session if context > 20k tokens.
 
-**Phase 2: Hard Reset (If error persists)**
+**Phase 2: Hard Reset**
 1. **Close IDE**.
-2. **Run**: พิมพ์ *"สร้าง antigravity_toolkit.sh ให้หน่อย"* → Agent จะสร้าง script ให้
+2. **Create Toolkit**: Type *"create antigravity_toolkit.sh"* → Agent will create the script.
 3. **Execute**: `./antigravity_toolkit.sh full`
 4. **Restart IDE**.
 
-### 🟠 Global Rule #2: Claude-MCP Conflict
-If using Claude + MCP fails: **Disable ALL MCP servers** immediately. Retry one by one only if strictly necessary.
+### 🟠 Rule #2: Claude-MCP Conflict
 
-### 🟡 Global Rule #3: Token-Aware Context Hygiene
-- **Strict Limit**: NEVER read files > 500 lines or > 50KB without checking first.
+If Claude + MCP fails: **Disable ALL MCP servers** immediately. Re-enable one by one only if strictly necessary.
+
+### 🟡 Rule #3: Token-Aware Context Hygiene
+
+- **File Size Limit**: NEVER read files > 500 lines or > 50KB without checking first.
 - **Pre-Check**: ALWAYS use `view_file_outline` or `du -h` before reading large files.
-- **No Dumping**: Do not dump massive logs or `grep` output directly into chat. Pipe to a file and read snippets.
+- **No Log Dumping**: Pipe large outputs to files; read snippets, not full dumps.
 
 ## 🛡️ Prevention Protocols
-1. **New Chat Habit**: สร้าง Chat ใหม่ทุก 30-50 messages หรือเมื่อเปลี่ยนหัวข้อ
-2. **Project Hygiene**: Ensure workspace has a valid `package.json` or `.git` root.
-3. **Network**: Use Cloudflare DNS (1.1.1.1) for connection stability.
-4. **Scratch Cleanup**: Periodically run `find ~/.gemini -name "*.scratch" -delete`.
+
+1. **Fresh Chat Habit**: Start new chat every 30-50 messages or when switching topics.
+2. **Project Hygiene**: Ensure workspace has valid `package.json` or `.git` root.
+3. **Network Stability**: Use Cloudflare DNS (1.1.1.1) for stable connections.
+4. **Cleanup**: Periodically run `find ~/.gemini -name "*.scratch" -delete`.
 
 ---
 
@@ -98,43 +104,43 @@ rm -rf ~/.gemini_OLD_*
 
 ## Create Toolkit Script
 
-> เมื่อ user พิมพ์: **"สร้าง antigravity_toolkit.sh ให้หน่อย"**
+> **Trigger**: User types *"create antigravity_toolkit.sh"* or similar request.
 
-1. **สร้าง directory** (ถ้ายังไม่มี):
+1. **Create directory** (if needed):
 
    ```bash
    mkdir -p ~/Documents/antigravity_toolkit
    ```
 
-2. **สร้างไฟล์** `~/Documents/antigravity_toolkit/antigravity_toolkit.sh` จาก embedded script ด้านล่าง
+2. **Create file** `~/Documents/antigravity_toolkit/antigravity_toolkit.sh` from embedded script below.
 
-3. **ให้สิทธิ์ execute**:
+3. **Make executable**:
 
    ```bash
    chmod +x ~/Documents/antigravity_toolkit/antigravity_toolkit.sh
    ```
 
-4. **แจ้ง user** ว่าพร้อมใช้งาน
+4. **Notify user** that toolkit is ready.
 
 ## Sync Global Rules
 
-> เมื่อ user พิมพ์: **"sync GEMINI"** หรือ **"update global rules"**
+> **Trigger**: User types *"sync GEMINI"* or *"update global rules"*.
 
 **⚠️ ALWAYS Compare First!**
 
-1. **Compare ก่อนทุกครั้ง**:
+1. **Compare before replacing**:
 
    ```bash
    diff ~/Documents/startup/GEMINI.md ~/.gemini/GEMINI.md
    ```
 
-   หรือใช้ `view_file` ทั้ง 2 ไฟล์แล้วเทียบ
+   Or use `view_file` on both files and compare.
 
-2. **แจ้ง user ถึงความแตกต่าง**:
-   - อะไรจะถูกเพิ่ม/ลบ/เปลี่ยน
-   - ขอ approval ก่อน replace
+2. **Report differences**:
+   - What will be added/removed/changed
+   - Request approval before replacing
 
-3. **Replace เมื่อ user approve**:
+3. **Replace when approved**:
 
    ```bash
    cp ~/Documents/startup/GEMINI.md ~/.gemini/GEMINI.md
@@ -150,7 +156,7 @@ rm -rf ~/.gemini_OLD_*
 
 # 📦 Embedded Toolkit Script
 
-> **สำหรับ Agent:** เมื่อ user ต้องการสร้าง toolkit ให้ copy script ด้านล่างไปสร้างเป็นไฟล์ `.sh`
+> **For Agent**: When user requests toolkit creation, copy script below to create `.sh` file.
 
 <details>
 <summary>🔽 Click to expand: antigravity_toolkit.sh</summary>
@@ -376,4 +382,4 @@ esac
 
 ---
 
-*🛸 Antigravity Toolkit v3.2*
+*🛸 Antigravity Toolkit v3.3*
