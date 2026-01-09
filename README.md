@@ -18,17 +18,8 @@
 2. **Sync Global Rules**:
    พิมพ์ **"sync GEMINI"** ใน Antigravity
 
-3. **สร้าง Toolkit** (ถ้าต้องการ):
-   พิมพ์ **"สร้าง antigravity_toolkit.sh ให้หน่อย"**
-
-## 📖 Documentation
-
-ดูรายละเอียดทั้งหมดใน `GEMINI.md`:
-- Global Rules
-- Emergency Protocols
-- Factory Reset Guide
-- Agent Instructions
-- Embedded Toolkit Script
+3. **ดูคำแนะนำทั้งหมด**:
+   อ่านใน `GEMINI.md`
 
 ---
 
