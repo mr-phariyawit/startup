@@ -268,7 +268,6 @@ cmd_restore_rules() {
         fi
     else
         echo -e "${RED}❌ Source file not found: $STARTUP_GEMINI${NC}"
-        echo "Please run: git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup"
     fi
 }
 
@@ -348,7 +347,6 @@ cmd_full() {
         fi
     else
         echo -e "${RED}❌ Source file not found: $STARTUP_GEMINI${NC}"
-        echo "Please clone: git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup"
     fi
     
     echo ""
