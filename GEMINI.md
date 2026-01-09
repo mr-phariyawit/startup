@@ -17,7 +17,23 @@
 4. **Context Hygiene**: Start fresh chats often — Agent has persistent memory across sessions.
 5. **Iterative Refinement**: Start simple, then iterate based on outputs.
 
-## ️ Prevention Protocols
+## 🎯 Prompt Engineering Best Practices
+
+1. **Be Specific**: Avoid vague instructions. Instead of "summarize", say "provide a 3-sentence summary focusing on key arguments".
+2. **Provide Context**: Include all relevant background information upfront.
+3. **Use Role-Based Framing**: "Act as a senior software engineer..." guides tone and expertise level.
+4. **Few-Shot Examples**: Include 1-2 examples of desired input/output patterns for complex tasks.
+5. **Specify Output Format**: Request bullet points, JSON, tables, or specific lengths explicitly.
+6. **Task Decomposition**: Break complex problems into smaller, sequential steps.
+
+## 🧠 Token-Aware Context Hygiene
+
+- **File Size Limit**: NEVER read files > 500 lines or > 50KB without checking first.
+- **Pre-Check**: ALWAYS use `view_file_outline` or `du -h` before reading large files.
+- **No Log Dumping**: Pipe large outputs to files; read snippets, not full dumps.
+- **Minimize Irrelevant Info**: Remove unnecessary context to keep tokens focused.
+
+## 🛡️ Prevention Protocols
 
 1. **Fresh Chat Habit**: Start new chat every 30-50 messages or when switching topics.
 2. **Project Hygiene**: Ensure workspace has valid `package.json` or `.git` root.
