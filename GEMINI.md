@@ -405,4 +405,37 @@ esac
 
 ---
 
+## 🔄 Agent Instructions: Sync Global Rules
+
+> **เมื่อ user ต้องการ sync GEMINI.md ไปยัง ~/.gemini/** ให้ทำตามขั้นตอนนี้:
+
+### ⚠️ ALWAYS Compare First!
+
+1. **Compare ก่อนทุกครั้ง**:
+   ```bash
+   diff ~/Documents/startup/GEMINI.md ~/.gemini/GEMINI.md
+   ```
+   หรือใช้ `view_file` ทั้ง 2 ไฟล์แล้วเทียบ
+
+2. **แจ้ง user ถึงความแตกต่าง**:
+   - อะไรจะถูกเพิ่ม/ลบ/เปลี่ยน
+   - ขอ approval ก่อน replace
+
+3. **Replace เมื่อ user approve**:
+   ```bash
+   cp ~/Documents/startup/GEMINI.md ~/.gemini/GEMINI.md
+   ```
+
+4. **Verify**:
+   ```bash
+   head -5 ~/.gemini/GEMINI.md
+   ```
+
+### 📋 Quick Sync Command (User Request)
+
+เมื่อ user พิมพ์: *"sync GEMINI"* หรือ *"update global rules"*
+→ Agent ต้อง **compare ก่อนเสมอ** แล้วแสดง diff ให้ user เห็นก่อน replace
+
+---
+
 *🛸 Antigravity Unified Rules & Toolkit v3.0*
