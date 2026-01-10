@@ -366,6 +366,59 @@ rm -rf ~/.gemini_OLD_*
    head -5 ~/.gemini/GEMINI.md
    ```
 
+## Memory Auto-Save
+
+> **Purpose**: Auto-save all artifacts to `.memory` folder in each project for persistent local history.
+
+### Trigger
+
+Agent MUST auto-save artifacts in these situations:
+
+1. **On artifact creation/modification**: When any artifact file is created or edited
+2. **On task completion**: Before calling `notify_user` to end a task
+
+### Save Location
+
+```
+{project_root}/.memory/{YYMMDD_HHMM}_{title}/
+```
+
+- **project_root**: Active workspace root (e.g., `/Users/.../Documents/startup`)
+- **timestamp**: Format `YYMMDD_HHMM` (e.g., `260110_1153`)
+- **title**: From TaskName, sanitized (lowercase, underscores, max 50 chars)
+
+### Files to Save
+
+Copy ALL artifacts from current brain session:
+
+- `implementation_plan.md`
+- `walkthrough.md`
+- `task.md`
+- Any other artifacts created during the task
+
+### Title Generation
+
+1. Take TaskName from `task_boundary`
+2. Fallback: User Request first line
+3. Sanitize: lowercase, replace spaces with underscores, remove special chars
+4. Truncate to max 50 characters
+5. Example: "Planning Memory Auto-Save Feature" → `planning_memory_autosave_feature`
+
+### Auto-Save Commands
+
+```bash
+# Create memory folder
+TIMESTAMP=$(date +%y%m%d_%H%M)
+TITLE="task_title_here"
+mkdir -p {project_root}/.memory/${TIMESTAMP}_${TITLE}
+
+# Copy artifacts from brain
+cp ~/.gemini/antigravity/brain/{session_id}/*.md {project_root}/.memory/${TIMESTAMP}_${TITLE}/
+
+# Ensure .gitignore includes .memory (if not already)
+grep -q ".memory/" {project_root}/.gitignore || echo ".memory/" >> {project_root}/.gitignore
+```
+
 ---
 
 # 📦 Embedded Toolkit Script

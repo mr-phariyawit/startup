@@ -1,2 +1,6 @@
 .DS_Store
 .spec-driven.md
+.antigravity_toolkit
+
+# Antigravity Memory (auto-saved artifacts)
+.memory/
