@@ -10,21 +10,40 @@
 | `.agent/workflows/` | Workflow scripts (เช่น `/save-memory`) |
 | `antigravity_toolkit/` | Factory Reset และ Restore scripts |
 
-## 🚀 Quick Start
+## 🚀 Getting Started (The 3-Step Protocol)
 
-1. **Clone repo**:
-   ```bash
-   git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup
-   ```
+### Step 1: Sync Global Rules (Brain Activation)
+> **Do this ONCE per machine.**
 
-2. **Sync Global Rules**:
-   Type **"sync GEMINI"** in Antigravity
+1.  **Clone repo**:
+    ```bash
+    git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup
+    ```
+2.  **Sync**: Type **"sync GEMINI"** in Antigravity.
+    -   *Why?* This instills the "Structural Memory Pattern" into the Agent's global memory.
 
-3. **Read documentation**:
-   See `GEMINI.md` for complete guide
+### Step 2: Initialize Project (Bootstrapping)
+> **Do this for EVERY new project.**
 
-4. **Initialize Project**:
-   Type **"/init"** to scaffold your project structure (`agent/`, `.memory/`, etc.)
+1.  **Run**: Type **"init-project"**.
+2.  **Outcome**:
+    -   Creates `agent/` (Rules), `.memory/` (History), and `.env.example`.
+    -   Generates `antigravity_toolkit.sh` script.
+
+### Step 3: Activate & Verify (Critical)
+1.  **Activate**: Tell Agent: **"Import rules and workflows."**
+    > *This turns on the "Structural Memory" and enables slash commands.*
+2.  **Verify**: Agent must confirm it has read `agent/rules/`.
+
+## Workflow Diagram
+
+```mermaid
+graph TD
+    A[Start] --> B[sync GEMINI]
+    B --> C[init-project]
+    C --> D[Import rules & workflows]
+    D --> E[Ready!]
+```
 
 ## 🌟 ข้อดีของ Repository นี้ (สำหรับมือใหม่)
 
@@ -97,7 +116,7 @@
 - มี **timestamp + title** ทำให้หาง่าย (เช่น `260110_1200_my_feature/`)
 - ไม่ต้องกลัวว่าจะลืม save หรือ **เสีย implementation plan** อีกต่อไป!
 
-### 12. 🧬 **Self-Healing Agent Pattern - แก้ไขตัวเองได้** 🆕
+### 12. 🧬 **Structural Memory Pattern - ความฉลาดที่ฝังอยู่ในโครงสร้าง** 🆕
 
 - Agent **จำกฎจาก File Structure** (`agent/rules/*`) ไม่ใช่แค่ Prompt
 - ถ้า Agent ทำผิด มันจะ **อ่านกฎใหม่และแก้ไขตัวเอง** (`/learn`)
@@ -117,7 +136,7 @@
 | โค้ดไม่ปลอดภัย (hardcode secrets) | มี Security Guardrails |
 | ต้องบอก AI ซ้ำทุกครั้ง | มี Global Rules + Persistent Memory |
 | ลืม save งาน / เสีย artifacts | มี Memory Auto-Save อัตโนมัติ 🆕 |
-| Agent ลืมกฎเมื่อเริ่ม chat ใหม่ | มี Self-Healing Agent Pattern (File-based Rules) 🆕 |
+| Agent ลืมกฎเมื่อเริ่ม chat ใหม่ | มี Structural Memory Pattern (File-based Rules) 🆕 |
 
 > 🎉 **ข้อดีที่สุดคือ: "เปลี่ยนมือใหม่ให้เขียนโค้ดแบบมืออาชีพได้ทันที"**
 >

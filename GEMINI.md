@@ -37,12 +37,12 @@ When encountering **413 error** or **Agent terminated**:
 
 ---
 
-# 🧬 Self-Healing Agent Pattern
+# 🧬 Structural Memory Pattern
 
 ## Core Concept
 The **Self-Healing AI Agent** embeds context, rules, and memory directly into the **File Structure** rather than relying on the "Prompt". This ensures that the Agent always follows the correct standards, even after a context reset.
 
-- **Single Source of Truth**: Rules are in `agent/rules/*`.
+- **Structural Memory**: Rules are in `agent/rules/*`.
 - **Self-Healing**: If a mistake is made, update the Rule first, then the Code.
 - **Enforced Read**: You must read `agent/rules/` before starting complex tasks.
 
@@ -92,8 +92,9 @@ Project-Root/
 
 > **Goal**: How to start a new project using the Antigravity Framework.
 
-## Step 1: Pull the Framework
-Start by pulling the startup repository (or cloning it if starting fresh):
+## Step 1: Pull the Framework (One-Time Setup)
+Start by pulling the startup repository (or cloning it if starting fresh).
+**Note**: You only need to do this and "Sync Global Rules" **ONCE per machine** (unless `github-startup` has updates).
 
 ```bash
 git pull https://github.com/mr-phariyawit/startup.git
@@ -104,14 +105,40 @@ git clone https://github.com/mr-phariyawit/startup.git my-new-project
 ## Step 2: Initialize the Agent
 Run the initialization protocol to set up the `agent/` structure:
 
-1.  **Run Command**: `/init` (or tell the Agent "Initialize Project")
+1.  **Trigger**: Tell the Agent **"init-project"**.
+    > *Note: We use natural language because custom slash commands (`/init`) are not available until rules are loaded.*
 2.  **Provide Details**: Answer the Agent's questions:
     -   Project Name
     -   Tech Stack (e.g., Node.js, Python, Go)
     -   Project Type (Library, CLI, Web App)
-3.  **Outcome**: The Agent will create the `agent/` directory, copy standard templates (`rules/*.md`, `workflow/*.md`), and create `.env.example`.
+3.  **Outcome**: The Agent will:
+    -   Create the `agent/` directory and copy standard templates (`rules/*.md`, `workflow/*.md`).
+    -   Create `.env.example`.
+    -   **Generate `antigravity_toolkit`** script for the project.
 
-## Step 3: Start Working with SDD
+## Step 3: Activate Structural Memory (Critical)
+**IMMEDIATELY** after initialization, you must load the new rules into the Agent's context:
+
+1.  **Import**: Tell Agent: **"Import rules and workflows."**
+2.  **Verify**: The Agent must confirm: "Rules imported. Structural Memory active."
+3.  **Ready**: Now you can use slash commands like `/spec`, `/task`, etc.
+
+## Bootstrap Workflow Diagram
+
+```mermaid
+graph TD
+    A[Start New Project] --> B{Global Rules Synced?}
+    B -- No --> C[Run: sync GEMINI]
+    B -- Yes --> D[Run: init-project]
+    C --> D
+    D --> E[Agent Creates Folder Structure]
+    E --> F[Run: Import rules & workflows]
+    F --> G{Verified?}
+    G -- No --> F
+    G -- Yes --> H[🚀 Agent Ready / Structural Memory Active]
+```
+
+## Step 4: Start Working with SDD
 1.  **Specify**: `/spec I want a feature that...`
 2.  **Plan**: `/spec.plan`
 3.  **Execute**: `/task Start implementing...`
