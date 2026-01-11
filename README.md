@@ -12,28 +12,34 @@
 
 ## 🚀 Getting Started (The 3-Step Protocol)
 
+
 ### Step 1: Sync Global Rules (Brain Activation)
+
 > **Do this ONCE per machine.**
 
-1.  **Clone repo**:
-    ```bash
-    git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup
-    ```
-2.  **Sync**: Type **"sync GEMINI"** in Antigravity.
-    -   *Why?* This instills the "Structural Memory Pattern" into the Agent's global memory.
+1. **Clone repo**:
+
+   ```bash
+   git clone https://github.com/mr-phariyawit/startup.git ~/Documents/startup
+   ```
+
+2. **Sync**: Type **"sync GEMINI"** in Antigravity.
+   - *Why?* This instills the "Structural Memory Pattern" into the Agent's global memory.
 
 ### Step 2: Initialize Project (Bootstrapping)
+
 > **Do this for EVERY new project.**
 
-1.  **Run**: Type **"init-project"**.
-2.  **Outcome**:
-    -   Creates `agent/` (Rules), `.memory/` (History), and `.env.example`.
-    -   Generates `antigravity_toolkit.sh` script.
+1. **Run**: Type **"init-project"**.
+2. **Outcome**:
+   - Creates `agent/` (Rules), `.memory/` (History), and `.env.example`.
+   - Generates `antigravity_toolkit.sh` script.
 
 ### Step 3: Activate & Verify (Critical)
-1.  **Activate**: Tell Agent: **"Import rules and workflows."**
-    > *This turns on the "Structural Memory" and enables slash commands.*
-2.  **Verify**: Agent must confirm it has read `agent/rules/`.
+
+1. **Activate**: Tell Agent: **"Import rules and workflows."**
+   > *This turns on the "Structural Memory" and enables slash commands.*
+2. **Verify**: Agent must confirm it has read `agent/rules/`.
 
 ## Workflow Diagram
 
@@ -157,4 +163,4 @@ Key concepts in `GEMINI.md`:
 
 ---
 
-*🛸 Antigravity Startup v5.0 — Powered by SDD*
+*🛸 Antigravity Startup v2026.2 — Powered by SDD*
