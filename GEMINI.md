@@ -23,11 +23,13 @@
 > - Switching to a new, unrelated topic
 > - Agent becomes slow or unresponsive
 >
-> **Why?** Large conversations are the primary cause of 413 errors and Agent termination.
+> **Why?** Large conversations are the primary cause of "Agent terminated due to error".
 
-### Error Recovery (413/Agent Terminated)
+### Error Recovery (Agent Terminated)
 
-When encountering **413 error** or **Agent terminated**:
+When encountering **"Agent terminated due to error"**:
+
+![Agent Terminated Error](docs/images/agent_terminated_error.png)
 
 1. **Switch Model**: Immediately downshift (High → Standard → Low)
 2. **Disable MCPs**: Temporarily disable ALL MCP servers
@@ -260,7 +262,7 @@ Use these commands to control the Agent's workflow efficiently.
 
 4.  **`memory-keeper`**:
     -   **Role**: System Administrator.
-    -   **Trigger**: Task completion, Artifact saving, 413 Errors.
+    -   **Trigger**: Task completion, Artifact saving, Agent Terminated errors.
     -   **Action**: Manages `.memory/` backups and advises on recovery protocols.
 
 ---
@@ -439,7 +441,7 @@ These criteria define the expected behavior of the Structural Memory Agent.
 ## 🛸 Factory Reset & Tools
 
 ### Factory Reset Guide
-> **Purpose**: Fix 413 errors or corruption. **Files in Documents are safe.**
+> **Purpose**: Fix "Agent terminated due to error" or corruption. **Files in Documents are safe.**
 
 1.  **Command**: `./antigravity_toolkit.sh full`
 2.  **Effect**: Factory reset Agent memory (`~/.gemini`) + Restore Global Rules.
