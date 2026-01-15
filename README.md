@@ -7,8 +7,11 @@
 | File | Purpose |
 |:-----|:--------|
 | `GEMINI.md` | Global Rules + SDD Philosophy + Factory Reset Guide + Agent Instructions + Memory Auto-Save |
-| `.agent/workflows/` | Workflow scripts (เช่น `/save-memory`) |
+| `.cursorrules` | IDE System Prompt Injection (Auto-loaded by Cursor/Windsurf) |
+| `.agent/workflows/` | Workflow scripts (เช่น `/save-memory`, `/sync-project`) |
 | `antigravity_toolkit/` | Factory Reset และ Restore scripts |
+| `skills/` | Source code for Global Skills (to be installed to `~/.gemini/`) |
+| `~/.gemini/antigravity/skills/` | Global Skills (SDD, Visuals, Auditor, Memory) |
 
 ## 🚀 Getting Started (The 3-Step Protocol)
 
@@ -26,7 +29,14 @@
 2. **Sync**: Type **"sync GEMINI"** in Antigravity.
    - *Why?* This instills the "Structural Memory Pattern" into the Agent's global memory.
 
-### Step 2: Initialize Project (Bootstrapping)
+### Step 2: Install Global Skills (Brain Expansion)
+
+> **Do this ONCE per machine.**
+
+1. **Install**: Type **"install skills"** (or run `cp -r skills/* ~/.gemini/antigravity/skills/`).
+2. **Verify**: Agent should confirm skills are installed in `~/.gemini/antigravity/skills/`.
+
+### Step 3: Initialize Project (Bootstrapping)
 
 > **Do this for EVERY new project.**
 
@@ -35,20 +45,39 @@
    - Creates `agent/` (Rules), `.memory/` (History), and `.env.example`.
    - Generates `antigravity_toolkit.sh` script.
 
-### Step 3: Activate & Verify (Critical)
+### Step 4: Activate & Verify (Critical)
 
 1. **Activate**: Tell Agent: **"Import rules and workflows."**
    > *This turns on the "Structural Memory" and enables slash commands.*
 2. **Verify**: Agent must confirm it has read `agent/rules/`.
+
+### 🔄 Updating Existing Projects
+
+After pulling new updates from the startup repo:
+1. **Run**: Type **"sync-project"**.
+2. **Outcome**: Updates rules, workflows, and skills while preserving your `agent.md` and `lessons.md`.
+
+---
+
+## 🤖 Agent Instructions (For AI reading this)
+
+**IF** you are reading this README for the first time in a new environment:
+1.  Check if `~/.gemini/antigravity/skills` exists.
+2.  **IF NOT FOUND**: proactively ask the user:
+    > "I notice you have the Antigravity Skills in this repo but they are not installed globally. Would you like me to install them now?"
+3.  **IF USER SAYS YES**: Copy `skills/*` to `~/.gemini/antigravity/skills/`.
+
+---
 
 ## Workflow Diagram
 
 ```mermaid
 graph TD
     A[Start] --> B[sync GEMINI]
-    B --> C[init-project]
-    C --> D[Import rules & workflows]
-    D --> E[Ready!]
+    B --> C[install skills]
+    C --> D[init-project]
+    D --> E[Import rules & workflows]
+    E --> F[Ready!]
 ```
 
 ## 🌟 ข้อดีของ Repository นี้ (สำหรับมือใหม่)
@@ -128,6 +157,13 @@ graph TD
 - ถ้า Agent ทำผิด มันจะ **อ่านกฎใหม่และแก้ไขตัวเอง** (`/learn`)
 - **Single Source of Truth** อยู่ที่ไฟล์ ไม่ใช่ที่แชท ทำให้บริบทไม่หายแม้เริ่ม chat ใหม่
 
+### 13. 🛠️ **Custom Skills Automation - ระบบทำงานอัตโนมัติ** 🆕
+
+- **`sdd-architect`**: คอยห้ามไม่ให้เขียนโค้ดถ้ายังไม่มี Plan
+- **`visual-communicator`**: วาด Diagram เองอัตโนมัติเมื่ออธิบายเรื่องยาก
+- **`the-auditor`**: ตรวจ Code Quality และ 9 Articles ให้ก่อนส่งงาน
+- **`memory-keeper`**: ช่วย Backup artifacts ให้อัตโนมัติ
+
 ---
 
 ## 💡 สรุปเปรียบเทียบ
@@ -145,6 +181,7 @@ graph TD
 | Agent ลืมกฎเมื่อเริ่ม chat ใหม่ | มี Structural Memory Pattern (File-based Rules) |
 | ไม่ใช้รูปภาพอธิบาย / ไม่มี diagram | มี Visual Communication Standards (Mermaid) 🆕 |
 | แก้โค้ดแล้วบัค / ไม่ทดสอบ | มี Browser Verification Loop (chrome-check) 🆕 |
+| Agent ทำงานซ้ำซากจำไม่ได้ | มี Custom Skills Automation (Auditor, Architect) 🆕 |
 
 > 🎉 **ข้อดีที่สุดคือ: "เปลี่ยนมือใหม่ให้เขียนโค้ดแบบมืออาชีพได้ทันที"**
 >

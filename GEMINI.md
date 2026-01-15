@@ -57,6 +57,7 @@ Project-Root/
 ├── .git/
 ├── .memory/                  # [AUTO-SAVE] Implementation Plans & Tasks history
 │   └── YYMMDD_HHMM_Title/    # e.g., 260111_1600_setup_agent
+├── .cursorrules              # [AUTO-LOAD] IDE System Prompt Injection
 ├── agent.md                  # [MASTER] Agent Persona & Project-Specific Directives
 ├── agent/
 │   ├── rules/                # [BRAIN] Immutable Laws
@@ -105,6 +106,7 @@ adhere to safety and architectural guidelines defined in the
 - **`agent/rules/`**: Immutable laws (Safety, Dev, Docs)
 - **`agent/workflow/`**: Operational logic for short-codes
 - **`agent/memory/`**: Long-term lessons learned
+- **`~/.gemini/antigravity/skills/`**: Global reusable agent capabilities
 ```
 
 #### 2. `agent/rules/development.md` (Standard)
@@ -137,7 +139,7 @@ adhere to safety and architectural guidelines defined in the
 
 2. **Structure Generation:**
    - Create directories: `agent/rules`, `agent/workflow`, `docs`, `src`.
-   - Copy Standard Templates: `agent.md`, `rules/*`, `workflow/*`.
+   - Copy Standard Templates: `agent.md`, `.cursorrules`, `rules/*`, `workflow/*`.
    - Create `.env.example` and `.gitignore`.
 
 3. **Confirmation:**
@@ -221,6 +223,7 @@ Use these commands to control the Agent's workflow efficiently.
 | Command | Description | Protocol |
 | :--- | :--- | :--- |
 | `/init` | **Bootstrap Project** | Creates folder structure + `agent/` templates. |
+| `/sync-project` | **Update Project** | Syncs rules, workflows, skills from startup repo. (Preserves `agent.md`) |
 | `/task [desc]` | **Start Task** | Reads Rules → Analysis → Creates Working Log → Plan → Approval. |
 | `/spec [desc]` | **Create Specification** | Transforms raw idea into `spec.md` (SDD). |
 | `/spec.plan` | **Create Plan** | Generates `implementation_plan.md` from `spec.md`. |
@@ -228,6 +231,37 @@ Use these commands to control the Agent's workflow efficiently.
 | `/learn` | **Structural Correction** | Analyzes error → Updates `agent/rules` → Verifies fix. |
 | `/retro` | **Retrospective** | Summarizes work and saves artifacts to `.memory/`. |
 | `/help` | **Show Commands** | Lists available commands. |
+
+---
+
+## 🧠 Antigravity Skills
+
+> **Concept**: Skills are modular packages of "know-how" that allow the Agent to handle specialized tasks with expert-level consistency.
+
+### Location
+- **Global Skills**: `~/.gemini/antigravity/skills/` (Available across all projects)
+- **Project Skills**: `.agent/skills/` (Project-specific)
+
+### Core Installed Skills
+1.  **`sdd-architect`**:
+    -   **Role**: SDD Gatekeeper.
+    -   **Trigger**: `/spec`, `/plan`, or starting new features.
+    -   **Action**: Enforces Spec -> Plan -> Task workflow. Prevents coding without approval.
+
+2.  **`visual-communicator`**:
+    -   **Role**: Diagram Generator.
+    -   **Trigger**: Explaining architecture, logic, or workflows.
+    -   **Action**: Generates Mermaid diagrams (`graph`, `sequence`, `class`) automatically.
+
+3.  **`the-auditor`**:
+    -   **Role**: Quality Assurance.
+    -   **Trigger**: `/review`, Pre-PR checks.
+    -   **Action**: Audits code against "9 Articles" (Test-First, LOC < 500, Simplicity).
+
+4.  **`memory-keeper`**:
+    -   **Role**: System Administrator.
+    -   **Trigger**: Task completion, Artifact saving, 413 Errors.
+    -   **Action**: Manages `.memory/` backups and advises on recovery protocols.
 
 ---
 
