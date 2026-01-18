@@ -10,20 +10,32 @@ This repository is designed for **Google Antigravity IDE** (powered by Google De
 
 ```
 startup/
-├── .agent/                   # [CONSOLIDATED] All agent config
-│   ├── rules/                # Safety, Dev, Docs, Autoteam rules
-│   ├── workflows/            # /task, /spec, /team-* commands
-│   ├── memory/               # Team history, lessons, patterns
-│   ├── skills/roles/         # 10 specialized AI roles
-│   ├── templates/            # Config templates
-│   └── tools/                # Architecture, RAG, Security
-├── .memory/                  # [AUTO-SAVE] Job history & backups
-├── specs/features/           # Feature specifications
-├── docs/                     # Documentation + UXUI/
-├── skills/                   # Global Skills source code
-├── agent.md                  # Master directives
-├── GEMINI.md                 # Global Rules + SDD + Autoteam
-└── antigravity_toolkit.sh    # Factory Reset & Restore
+├── .agent/                       # [CONSOLIDATED] All agent config
+│   ├── memory/                   # Team history, lessons, patterns, config
+│   │   ├── decisions/            # Vote records
+│   │   ├── team-history.md       # Session memory
+│   │   └── config.yaml           # Autoteam settings
+│   ├── rules/                    # Safety, Dev, Docs, Autoteam rules
+│   ├── skills/roles/             # 10 specialized AI roles
+│   ├── templates/                # Config templates
+│   ├── tools/                    # Architecture, RAG, Security
+│   └── workflows/                # /task, /spec, /team-* commands
+├── .claude/                      # Claude settings (auto-generated)
+├── .memory/                      # [AUTO-SAVE] Job history & backups
+├── antigravity_toolkit/          # Toolkit assets
+├── docs/
+│   ├── UXUI/                     # Wireframes
+│   └── images/                   # Documentation images
+├── skills/                       # Global Skills source code
+│   ├── memory-keeper/
+│   ├── sdd-architect/
+│   ├── the-auditor/
+│   └── visual-communicator/
+├── specs/features/               # Feature specifications
+├── agent.md                      # Master directives
+├── antigravity_toolkit.sh        # Factory Reset & Restore script
+├── GEMINI.md                     # Global Rules + SDD + Autoteam
+└── README.md                     # This file
 ```
 
 ## 📦 Files Reference
