@@ -11,14 +11,17 @@ This repository is designed for **Google Antigravity IDE** (powered by Google De
 ```
 startup/
 ├── .agent/                       # [CONSOLIDATED] All agent config
-│   ├── memory/                   # Team history, lessons, patterns, config
-│   │   ├── decisions/            # Vote records
-│   │   ├── team-history.md       # Session memory
-│   │   └── config.yaml           # Autoteam settings
-│   ├── rules/                    # Safety, Dev, Docs, Autoteam rules
-│   ├── roles/                    # 10 specialized AI roles (Autoteam)
+│   ├── ai-team/                  # [DYNAMIC] Team runtime state
+│   │   ├── team-history.md       # Session logs & progress
+│   │   ├── config.yaml           # Active team settings
+│   │   └── decisions/            # Vote records
+│   ├── memory/                   # [STATIC] Accumulated knowledge
+│   │   ├── lessons.md            # Learned lessons
+│   │   └── patterns.md           # Discovered patterns
+│   ├── roles/                    # Role templates (10 roles)
+│   ├── rules/                    # Agent behavior rules
 │   ├── templates/                # Config templates
-│   ├── tools/                    # Architecture, RAG, Security
+│   ├── tools/                    # Architecture, RAG, Security guides
 │   └── workflows/                # /task, /spec, /team-* commands
 ├── .memory/                      # [AUTO-SAVE] Job history & backups
 ├── antigravity_toolkit/          # Toolkit assets

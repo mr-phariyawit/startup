@@ -33,17 +33,24 @@ The Agent embeds context into the file structure, not just the prompt.
 - **Correction**: Update Rules (`/learn`) before correcting Code.
 
 ### 📂 Standard Project Structure
+
 ```text
 Project-Root/
 ├── .memory/                  # [AUTO-SAVE] Job history
 ├── agent.md                  # [MASTER] Root directives
 ├── .agent/                   # [CONSOLIDATED] All agent config
-│   ├── rules/                # [BRAIN] Safety, Dev, Docs, Autoteam rules
-│   ├── workflows/            # [COMMANDS] /task, /spec, /team-*
-│   ├── memory/               # [KNOWLEDGE] Lessons, Patterns, Team History
+│   ├── ai-team/              # [DYNAMIC] Team runtime state
+│   │   ├── team-history.md   # Session logs & progress
+│   │   ├── config.yaml       # Active team settings
+│   │   └── decisions/        # Vote records
+│   ├── memory/               # [STATIC] Accumulated knowledge
+│   │   ├── lessons.md        # Learned lessons
+│   │   └── patterns.md       # Discovered patterns
 │   ├── roles/                # [AUTOTEAM] 10 specialized roles
+│   ├── rules/                # [BRAIN] Safety, Dev, Docs rules
 │   ├── templates/            # [AUTOTEAM] Config templates
-│   └── tools/                # [AUTOTEAM] Architecture, RAG, Security
+│   ├── tools/                # [AUTOTEAM] Architecture, RAG, Security
+│   └── workflows/            # [COMMANDS] /task, /spec, /team-*
 ├── specs/features/           # Feature specifications
 ├── docs/                     # Documentation + UXUI/
 └── src/                      # Source Code
