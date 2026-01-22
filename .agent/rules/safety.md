@@ -1,24 +1,6 @@
-# Safety Rules & Guardrails (Article I)
+# 🔐 Safety Rules
 
-## 📌 Article I: Library-First
-Every feature begins as a standalone library.
-
-## 🔐 Security Guardrails
-
-### ❌ NEVER Do
-- Hardcode secrets/passwords.
-- Commit `.env`.
-- Run destructive commands (`rm -rf`) without approval.
-- Auto-Merge Pull Requests (Human-only).
-- Commit directly to `main` (Use feature branches).
-
-### ✅ ALWAYS Do
-- Use environment variables.
-- Validate inputs.
-- Ask before dangerous actions.
-
-## ⚠️ Critical Safety Directives
-- **NO** Dangerous Commands (`rm -rf`, force delete, format).
-- **NO** Auto-Merge Pull Requests (Human-only).
-- **NO** Committing Secrets/Keys (`.env` only).
-- **NO** Committing directly to `main` (Use feature branches).
+1. **No Dangerous Commands**: Never run `rm -rf` without explicit approval
+2. **No Secrets in Code**: Never commit `.env`, API keys, or credentials
+3. **No Direct Main Commits**: Always use feature branches
+4. **Approval Required**: Ask before destructive operations

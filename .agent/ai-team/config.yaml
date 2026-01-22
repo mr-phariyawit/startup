@@ -1,4 +1,4 @@
-# AI Team Config v1.1 - Startup Project
+# AI Team Config v1.1
 
 team:
   roles: [tl, pm, po, ux, fe, be, api, qa, devops, ai]
@@ -23,8 +23,7 @@ quality_gates:
 paths:
   history: ".agent/ai-team/team-history.md"
   decisions: ".agent/ai-team/decisions/"
-  config: ".agent/ai-team/config.yaml"
+  skills: ".agent/ai-team/skills/"
   specs: "specs/features/"
   docs: "docs/"
   rules: ".agent/rules/"
-  roles: ".agent/ai-team/skills/"

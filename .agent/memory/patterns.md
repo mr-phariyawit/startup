@@ -1,2 +1,3 @@
-# Reusable Patterns
+# 🔄 Discovered Patterns
 
+_Document recurring patterns here._

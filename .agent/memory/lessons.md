@@ -1,5 +1,3 @@
-# Lessons Learned
+# 🎓 Learned Lessons
 
-## Do's
-
-## Don'ts
+_Add lessons learned during development here._
